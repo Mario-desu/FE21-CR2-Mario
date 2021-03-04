@@ -264,7 +264,6 @@ footer {
   }
   .top-item {
     margin-top: 2vh;
-    border: solid 1px black;
     height: 16vw;
   }
   .top-itemleft {
@@ -273,8 +272,8 @@ footer {
     display: -ms-flexbox;
     display: flex;
   }
-  .topitemleft img {
-    width: 25Svw;
+  header .top-itemleft img {
+    width: 50vw;
   }
   .top-itemright {
     display: none;
