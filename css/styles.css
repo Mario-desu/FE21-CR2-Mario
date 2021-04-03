@@ -133,9 +133,15 @@ nav li {
 
 .thumbnail-wrapper img {
   width: 100%;
-  height: auto;
+  /* or 100% of container */
+  height: 20em;
+  /*  or 100% of container */
   -o-object-fit: cover;
      object-fit: cover;
+  /* none can be an option too as cover may deform it*/
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+  /* if both 50% will center it*/
 }
 
 .popular {
@@ -170,17 +176,29 @@ nav li {
 
 .dev-wrapper img {
   width: 100%;
-  height: auto;
+  /* or 100% of container */
+  height: 20em;
+  /*  or 100% of container */
   -o-object-fit: cover;
      object-fit: cover;
+  /* none can be an option too as cover may deform it*/
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+  /* if both 50% will center it*/
 }
 
 .dev-wrapper .dev-item-banner {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 3;
-  margin-left: 10vw;
   background-color: transparent;
+}
+
+.dev-wrapper .dev-item-banner img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /*----footer----*/
@@ -204,7 +222,7 @@ footer {
   display: inline-block;
   list-style-type: none;
   color: whitesmoke;
-  font-size: 1.5vw;
+  font-size: 1.8vw;
   padding-left: 1em;
 }
 
@@ -228,8 +246,6 @@ footer {
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-  -webkit-column-gap: 2em;
-          column-gap: 2em;
 }
 
 .article-wrapper .article1, .article-wrapper .article2 {
@@ -239,14 +255,39 @@ footer {
 }
 
 .article-wrapper img {
-  width: 40%;
-  height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
+  width: 100%;
+  margin: 4vh 0 5vh 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
 }
 
 .article-wrapper p {
   line-height: 1.5em;
+}
+
+/*make iframe-video responsive
+https://www.w3schools.com/howto/howto_css_responsive_iframes.asp
+*/
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%;
+  /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  margin-bottom: 3vh;
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (max-width: 480px) {
@@ -258,9 +299,9 @@ footer {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .top-item {
     margin-top: 2vh;
@@ -288,7 +329,7 @@ footer {
             justify-content: center;
   }
   nav li {
-    font-size: 4vw;
+    font-size: 5vw;
   }
   .thumbnail-wrapper {
     width: 80%;
@@ -301,6 +342,14 @@ footer {
   }
   .thumbnail-wrapper .thumb-item {
     margin-top: 4vw;
+  }
+  .heading {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .dev-wrapper {
     width: 80%;
@@ -371,10 +420,10 @@ footer {
 
 @media screen and (min-width: 481px) and (max-width: 1200px) {
   nav {
-    margin-bottom: 3vh;
+    margin-bottom: 2.5vh;
   }
   nav li {
-    font-size: 4vw;
+    font-size: 3vw;
   }
   .thumbnail-wrapper {
     width: 80%;
@@ -410,6 +459,12 @@ footer {
   }
   .dev-wrapper .dev-item-banner {
     background-color: transparent;
+  }
+  footer {
+    height: auto;
+  }
+  .footer-wrapper li {
+    font-size: 2.3vw;
   }
 }
 /*# sourceMappingURL=styles.css.map */
